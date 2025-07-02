@@ -1,0 +1,594 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+
+}
+
+main {
+  width: 100%;
+}
+/*------------------------------------------- Header----------------------------------------------------------- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(87, 40, 34);
+  padding: 30px 40px;
+  color: rgb(255, 255, 255);
+  position: relative;
+  width: 100%;
+}
+
+.logo img {
+  max-width: 300px;
+  /* tamanho máximo da logo */
+  width: 100%;
+  height: auto;
+}
+
+.nav-menu ul {
+  display: flex;
+  list-style: none;
+  gap: 60px;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+  position: relative; /* Adicionado para o efeito da linha */
+  transition: transform 0.3s, color 0.3s; /* Transição suave para cor e movimento */
+}
+
+.nav-menu a:hover {
+  transform: translateY(-5px); /* Move o componente para cima */
+  color: rgb(145, 123, 4); /* Muda a cor para dourado */
+}
+
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px; /* Distância da linha em relação ao texto */
+  height: 2px; /* Altura da linha */
+  width: 100%;
+  background-color: rgb(165, 141, 4); /* Cor da linha */
+  transform: scaleX(0); /* Inicialmente invisível */
+  transition: transform 1s ease; /* Animação da linha */
+}
+
+.nav-menu a:hover::after {
+  transform: scaleX(1); /* Linha aparece da esquerda para a direita */
+}
+
+.menu-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.menu-toggle {
+  height: 40px;
+  width: auto;
+  max-width: 100%;
+  cursor: pointer;
+  display: none;
+}
+
+/* Carrinho */
+.cart-icon img {
+  height: 50px;
+  width: auto;
+  max-width: 100%;
+}
+
+/* Responsivo: Mobile */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color:#572822;
+    padding: 15px;
+    border-radius: 8px;
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-menu.active {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo img {
+    max-width: 200px;
+    /* menor logo em telas pequenas */
+  }
+}
+
+@media (max-width: 480px) {
+
+  .cart-icon img,
+  .menu-toggle {
+    height: 22px;
+  }
+}
+
+.title {
+  margin-top: 40px;
+  font-size: large;
+  font-size: 35px;
+  margin-bottom: 20px;
+  transition: 1.0s;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  text-shadow: 2px 3px 3px #bea590;
+  color: #572822;
+}
+
+/* ------------------------------------------------------------------------------------------------------------ */
+
+.container {
+  width: 100%;
+  height: 1000px;
+  min-height: 40vh; /* altura mínima de 100% da tela */
+  padding: 60px 40px; /* espaço interno */
+  background-image: url(../img/fundo.png);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.row {
+   display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Colunas */
+.col-2 {
+  flex: 1 1 50%;
+  min-width: 300px; /* evita que fique apertado demais */
+  padding: 20px;
+}
+
+/* Textos */
+.text-content h1 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.text-content p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* Centralizar carrossel na coluna */
+.carousel-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .col-2 {
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    height: 250px;
+  }
+
+  .image-container {
+    height: 200px;
+  }
+}
+
+/* --------------------------------------------carrosel--------------------------------------------- */
+
+.wrapper {
+  display: flex;
+  max-width: 650px;
+  width: 100%;
+  height: 400px;
+  background: #b93636;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+.wrapper i.button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 36px;
+  width: 36px;
+  background-color: #343f4f;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 36px;
+  color: #fff;
+  font-size: 15px;
+  transition: all 0.3s linear;
+  z-index: 100;
+  cursor: pointer;
+}
+i.button:active {
+  transform: scale(0.94) translateY(-50%);
+}
+i#prev {
+  left: 25px;
+}
+i#next {
+  right: 25px;
+}
+.image-container {
+  height: 320px;
+  max-width: 500px;
+  width: 100%;
+  overflow: hidden;
+}
+.image-container .carousel {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  transition: all 0.4s ease;
+}
+.carousel img {
+  height: 100%;
+  width: 100%;
+  border-radius: 18px;
+  border: 10px solid #fff;
+  object-fit: cover;
+}
+/* ------------------------------------------------------------------------------------------------ */
+
+
+.col-2 {
+    flex-basis: 50%;
+    margin-top: 60px;
+    text-align: left;
+}
+
+.col-2 img {
+    max-width: 100%;
+    padding: 50px 0;
+}
+
+.col-2 h1 {
+    font-size: 50px;
+    line-height: 60px;
+    margin: 25px 0;
+    color: #fff8ee;
+    text-shadow: 1px 2px 2px #000;
+}
+
+.col-2 p {
+  color: #fff8ee;
+  text-shadow: 1px 3px 2px #000 ;
+  font-size: large;
+  font-size: 30px;
+  
+}
+
+.offer {
+  display: flex;               /* Ativa o Flexbox */
+  flex-direction: row-reverse;     /* Direita → Esquerda */
+  justify-content: flex-end;       /* Alinha à direita */
+  gap: 40px;                       /* Espaço entre elementos */
+  background-color: #c29d7e;
+  width: 100%;                     /* Ocupa toda a largura */
+  padding: 0px;
+  box-sizing: border-box;          /* Evita overflow */
+}
+
+.offer img {
+  max-width: 500px;
+  border-radius: 10px;
+}
+
+.offer-img {
+    padding: 50px;
+    width: 100px;
+}
+
+.offer-carousel {
+  padding: 40px 20px;
+  margin: 60px auto;
+  width: 100%;
+  
+  box-sizing: border-box;
+}
+
+.offer-carousel .title {
+  color: #3d3d3d;
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.offer-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.offer-slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.offer-slide {
+  min-width: 100%;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.offer-slide img {
+  max-width: 500px;
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.offer-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.4);
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+#offer-prev {
+  left: 10px;
+}
+
+#offer-next {
+  right: 10px;
+}
+small {
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    font-size: 30px;
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    background: #572822;
+    color: #fff;
+    padding: 8px 30px;
+    margin: 30px 0;
+    border-radius: 30px;
+    transition: background 0.5s;
+}
+
+.btn:hover {
+    background: #563434;
+}
+
+.small-container {
+  padding: 0 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+
+
+}
+
+@media (max-width: 768px) {
+  .small-container {
+    padding: 0 20px;
+  }
+}
+
+.col-4 {
+  flex: 1 1 calc(25% - 20px);
+    flex-basis: 23%;
+    padding: 10px;
+    max-width: calc(25% - 20px);
+    min-width: 200px;
+    margin-bottom: 50px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    border-radius: 6px;
+    background-color: transparent;
+    text-align: center;
+}
+
+.col-4 img {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.col-4 h4 {
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    transition: color 0.3s ease;
+}
+
+.col-4 p {
+    font-size: 16px;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+    transition: color 0.3s ease;
+}
+
+.col-4 .rating {
+    color: rgb(255, 166, 0);
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.col-4 .rating .fa {
+    margin-right: 3px;
+}
+
+.col-4:hover {
+    background-color: rgba(87, 40, 34, 0.8);
+    transform: scale(1.05);
+}
+
+.col-4:hover h4,
+.col-4:hover p,
+.col-4:hover .rating {
+    color: rgb(255, 255, 255);
+}
+
+.col-4:hover img {
+    transform: scale(1.05);
+}
+
+.col-4 {
+  flex: 1 1 calc(25% - 20px);
+  max-width: calc(25% - 20px);
+}
+
+
+
+
+/* Estilos para o rodapé */
+.footer {
+    background: #000;
+    color: #8a8a8a;
+    font-size: 18px;
+    padding: 60px 0 20px;
+    margin: 10px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer p {
+    color: #bdb9b9;
+    font-size: 15px;
+}
+
+.footer h3 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4 {
+    min-width: 230px;
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.footer-col-1 {
+    flex: 2;
+}
+
+.footer-col-2 {
+    text-align: center;
+}
+
+.footer-col-2 img {
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+.footer-col-3 iframe {
+  width: 100%;
+  max-width: 500px;
+  height: 250px;
+}
+
+
+.footer-col-3, .footer-col-4 {
+    text-align: center;
+}
+
+.app-logo {
+    margin-top: 10px;
+}
+
+.app-logo img {
+    width: 10px;
+}
+
+.footer hr {
+    border: none;
+    background: #b5b5b5;
+    height: 1px;
+    margin: 20px 0;
+}
+
+.copyright {
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.footer-col-4 img {
+    width: 30px;
+    filter: invert(100%);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4 {
+        text-align: center;
+        flex: 1;
+        min-width: 100%;
+    }
+
+    .footer-col-2 img {
+        width: 150px;
+    }
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Livraria Carrão</title>
+  <link rel="stylesheet" href="css/livros.css" />
+</head>
+
+<body>
+  <!-- Header com carrinho -->
+
+  <header>
+    <div class="logo">
+      <img src="img/texto_texto-removebg-preview.png" alt="Logo da empresa">
+    </div>
+
+    <nav class="nav-menu" aria-label="Menu principal">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="#footer">Contato</a></li>
+        <li><a href="livros.html">Livros</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="admin.html">Admin</a></li>
+      </ul>
+    </nav>
+
+    <div class="menu-icons">
+      <img src="img/menu.png" alt="Abrir menu" class="menu-toggle" role="button" tabindex="0">
+
+      <a href="carrinho.html" class="cart-icon carrinho-link" aria-label="Carrinho de compras">
+        <img src="img/cart.png" alt="Carrinho">
+        <span id="carrinho-contador" class="contador">0</span>
+      </a>
+    </div>
+  </header>
+
+
+
+
+
+
+
+  <main class="layout">
+    <!-- Filtros (menu lateral esquerdo) -->
+    <aside class="filtros">
+      <h3>Filtros</h3>
+
+      <label for="filtroCategoria">Gênero:</label>
+      <select id="filtroCategoria">
+        <option value="todos">Todos</option>
+        <option value="ficcao">Ficção</option>
+        <option value="nao-ficcao">Não Ficção</option>
+        <option value="fantasia">Fantasia</option>
+        <option value="romance">Romance</option>
+      </select>
+
+      <label for="filtroEstado">Estado:</label>
+      <select id="filtroEstado">
+        <option value="todos">Todos</option>
+        <option value="novo">Novo</option>
+        <option value="usado">Usado</option>
+      </select>
+
+      <label for="busca">Busca:</label>
+      <input type="text" id="busca" placeholder="Título ou autor" />
+
+      <label for="ordenarPor">Ordenar por:</label>
+      <select id="ordenarPor">
+        <option value="titulo">Título</option>
+        <option value="autor">Autor</option>
+      </select>
+
+      <label for="preco">Por preço</label>
+      <select id="preco">
+      <option value="preco-asc">Crescente</option>
+      <option value="preco-desc">Decrescente</option>
+      </select>
+    </aside>
+
+    <!-- Lista de livros (lado direito) -->
+    <section id="listaLivros" class="livros-container"></section>
+  </main>
+
+
+
+
+
+  <footer class="footer" id="footer">
+    <div class="footer-col-2">
+      <h3>Feito com carinho pela:</h3>
+      <img src="img/WhatsApp_Image_2025-06-23_at_11.13.02-removebg-preview.png" alt="Logo Circe">
+    </div>
+
+    <div class="footer-col-3">
+      <h3>Endereço de vendas</h3>
+      <iframe id="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.0175000788095!2d-46.53347402382571!3d-23.531872978820093!2m3!1
+        f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5e160bc9791f%3A0x4370e8679ed3057f!2sVila%20Matilde!5e0!3m2!1spt-BR!2sbr!4v1750771079821!5m2!1
+        spt-BR!2sbr" width="500" height="450" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+
+
+      </iframe>
+      <p>Rua Coronel Pedro Dias de Campos - Metrô Vila Matilde</p>
+    </div>
+
+    <div class="footer-col-4">
+      <h3>Contatos</h3>
+      <img src="img/instagram.png" alt="Instagram">
+      <span>@olivreirodocarrao</span>
+      </a>
+    </div>
+
+    <p class="copyright">© 2025 Circe – Todos os direitos reservados.</p>
+  </footer>
+  <!-- Scripts ao final para carregamento eficiente -->
+  <script type="module" src="js/livros.js"></script>
+</body>
+
+</html>

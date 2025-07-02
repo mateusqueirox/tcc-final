@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"name": "semantico",
+			"path": "."
+		},
+		{
+			"name": "imagens",
+			"path": "../página inicial/imagens"
+		},
+		{
+			"name": "livros",
+			"path": "../página inicial/livros"
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5501
+	}
+}

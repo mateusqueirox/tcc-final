@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Carrinho de Compras</title>
+  <link rel="stylesheet" href="css/carrinho.css">
+</head>
+
+<div id="notaFiscalContainer" class="modal">
+  <div class="modal-content" id="notaFiscal">
+    <!-- Nota fiscal será gerada aqui -->
+  </div>
+</div>
+
+<body>
+  <main class="carrinho-layout">
+    <!-- Lado esquerdo: Itens -->
+    <section class="carrinho-itens" id="carrinhoContainer">
+      <!-- Livros serão renderizados aqui -->
+    </section>
+  
+    <!-- Lado direito: Total e botões -->
+    <aside class="carrinho-resumo">
+      <h2>Resumo da Compra</h2>
+      <p id="totalValor">Total: R$ 0,00</p>
+      <button onclick="finalizarCompra()">🛍️ Finalizar Compra</button>
+      <button onclick="window.location.href='livros.html'">📚 Adicionar Mais Livros</button>
+      <button onclick="esvaziarCarrinho()">🧹 Esvaziar Carrinho</button>
+    </aside>
+
+    <div id="modalFinalizar" class="modal">
+      <div class="modal-content">
+        <h2>Finalizar Compra</h2>
+        <form id="formFinalizar">
+          <label>Nome:</label>
+          <input type="text" required>
+    
+          <label>Email:</label>
+          <input type="email" required>
+    
+          <label>Endereço:</label>
+          <input type="text" required>
+    
+          <button type="submit">Confirmar Pedido</button>
+          <button type="button" onclick="fecharModal()">Cancelar</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+
+  <script src="js/carrinho.js"></script>
+</body>
+</html>

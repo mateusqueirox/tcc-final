@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - Cadastrar Livro</title>
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+
+<header>
+
+  <a href="livros.html" class="custom-btn btn-3"><span>&larr; Voltar</span></a>
+ 
+<!-- <button class="glow-on-hover" type="button">HOVER ME, THEN CLICK ME!</button> -->
+
+
+</header>
+
+  <main class="form-container">
+    <h1 class="titulo"> Cadastrar Novo Livro </h1>
+
+    <form id="formLivro">
+      <label>Título: <input type="text" name="titulo" required  class="cor-campo-fundo"/></label>
+      <label>Autor: <input type="text" name="autor" required     class="cor-campo-fundo"/></label>
+      <label>Gênero: <input type="text" name="genero" required    class="cor-campo-fundo"/></label>
+      <label>Preço: <input type="number" name="preco" step="0.01" required   class="cor-campo-fundo"/></label>
+      <label>Estado:
+        <select name="estado" required>
+          <option value="novo">Novo</option>
+          <option value="usado">Usado</option>
+        </select>
+      </label>
+      <label>Descrição:
+        <textarea name="descricao" rows="4" required></textarea>
+      </label>
+      <label>Imagem (upload):
+        <input type="file" id="imagem" accept="image/*" required />
+      </label>
+
+      <div id="previewContainer">
+        <img id="previewImagem" style="max-width: 100%; display: none; margin-top: 10px;" />
+      </div>
+
+      <button type="submit">Cadastrar Livro</button>
+    </form>
+
+    <h2 class="titulo02">Livros Cadastrados</h2>
+    <div id="listaLivrosAdmin"></div>
+  </main>
+
+  <script src="js/admin.js" type="module"></script>
+</body>
+</html>
